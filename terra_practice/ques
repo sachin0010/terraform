@@ -4,4 +4,5 @@ resources confign --> main.tf
 func of terraform fmt --> reformats confign files to canonical HCL style
 import -> bring existing resources to terraform mangmt
 instance - spot , ondemand --> spot-biding , ondemand-fixed price set by aws
-meta argument --> count , for_each .....
+meta argument --> count-no of inst- count creates inst with same inst type and key_pair etc ,..  for_each- use to map func to cretae map it uses key pair , in that k
+                key_pair value we can give name , instance type for multi env
