@@ -1,3 +1,4 @@
+#generally output.tf not working with this, but we can use by using for loop to iterate
 resource "aws_key_pair" "my_key" {
   key_name   = "terra-key"
   public_key = file("terra-key-ec2.pub")
