@@ -1,4 +1,23 @@
-#generally output.tf not working with this, but we can use by using for loop to iterate
+#generally output.tf not working with this, but we can use by using for loop to iterate like below--- in output.tf
+output "ec2_public_ips" {
+  value = {
+    for name, instance in aws_instance.my_instance :
+    name => instance.public_ip
+  }
+}
+output "website_urls" {
+  value = {
+    for name, instance in aws_instance.my_instance :
+    name => "http://${instance.public_ip}"
+  }
+}
+
+##for one instance 
+output "junoon_public_ip" {
+  value = aws_instance.my_instance["skt_junoon"].public_ip
+}
+
+---------------------------------------------------------------
 resource "aws_key_pair" "my_key" {
   key_name   = "terra-key"
   public_key = file("terra-key-ec2.pub")
