@@ -52,3 +52,5 @@ resource "aws_instance" "my_instance" {
     Name = "skt_automate"
   }
 }
+
+
