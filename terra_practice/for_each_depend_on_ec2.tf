@@ -61,6 +61,7 @@ resource "aws_instance" "my_instance" {
     skt_junoon = "t3.micro"
     skt_agra = "t3.micro"
   })
+  depends_on = [aws_security_group.my_sg , aws_key_pair.my_key]
   ami                    = var.ec2_ami_id
   instance_type          = each.value
   key_name               = aws_key_pair.my_key.key_name
