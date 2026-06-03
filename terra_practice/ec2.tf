@@ -38,6 +38,7 @@ resource "aws_security_group" "my_sg" {
 
 #ec2
 resource "aws_instance" "my_instance" {
+  count = 2    #creates 2 instance
   ami                    = "ami-0fe18bc3cfa53a248"          #us-east-2 ami_id of ubuntu
   instance_type          = var.ec2_instance_type      or "t3.small"
   key_name               = aws_key_pair.my_key.key_name
