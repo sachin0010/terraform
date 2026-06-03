@@ -1,0 +1,5 @@
+terra saves the exec plain in --> plan.out
+.terraform dir --> provides_plugins and metadata
+resources confign --> main.tf
+func of terraform fmt --> reformats confign files to canonical HCL style
+import -> bring existing resources to terraform mangmt
