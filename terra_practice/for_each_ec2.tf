@@ -1,4 +1,6 @@
 #generally output.tf not working with this, but we can use by using for loop to iterate like below--- in output.tf
+syntax -  for key, resource in aws_instance.my_instance : ...
+
 output "ec2_public_ips" {
   value = {
     for name, instance in aws_instance.my_instance :
