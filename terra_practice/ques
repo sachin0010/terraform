@@ -4,3 +4,4 @@ resources confign --> main.tf
 func of terraform fmt --> reformats confign files to canonical HCL style
 import -> bring existing resources to terraform mangmt
 instance - spot , ondemand --> spot-biding , ondemand-fixed price set by aws
+meta argument --> count , for_each .....
