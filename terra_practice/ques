@@ -6,3 +6,7 @@ import -> bring existing resources to terraform mangmt
 instance - spot , ondemand --> spot-biding , ondemand-fixed price set by aws
 meta argument --> count-no of inst- count creates inst with same inst type and key_pair etc ,..  for_each- use to map func to cretae map it uses key pair , in that k
                 key_pair value we can give name , instance type for multi env ,.... depend_on --> depends_on = [aws_security_group.my_sg , aws_key_pair.my_key]
+
+condn_expression -->  condition ? true_value : false_value
+         ex - select int type -  instance_type = var.environment == "prod" ? "t3.medium" : "t2.micro"
+              volume_size = var.env == "prod" ? 20 : var.ec2.default_root_storage_size             otherwise in var.tf use 10gb as default
