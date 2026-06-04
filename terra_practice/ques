@@ -9,4 +9,4 @@ meta argument --> count-no of inst- count creates inst with same inst type and k
 
 condn_expression --> ternary operator >       condition ? true_value : false_value
          ex - select int type -  instance_type = var.environment == "prod" ? "t3.medium" : "t2.micro"
-              volume_size = var.env == "prod" ? 20 : var.ec2.default_root_storage_size             otherwise in var.tf use 10gb as default
+              volume_size = var.env == "prod" ? 20 : var.ec2_default_root_storage_size             otherwise in var.tf use 10gb as default
