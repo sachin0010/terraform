@@ -10,3 +10,22 @@ meta argument --> count-no of inst- count creates inst with same inst type and k
 condn_expression --> ternary operator >       condition ? true_value : false_value
          ex - select int type -  instance_type = var.environment == "prod" ? "t3.medium" : "t2.micro"
               volume_size = var.env == "prod" ? 20 : var.ec2_default_root_storage_size             otherwise in var.tf use 10gb as default
+
+****Terraform state mngmt and backends****
+Terraform state tracks your infrastructure, acting as a source of truth that maps your configuration code to real-world resources. .tfstate file maintains
+terrfaorm refresh or terrform apply also refresh the .tfstate file
+   terraform state list
+   terraform state show aws_key_pair.my_key
+   terraform state show aws_default_vpc.my_vpc
+   terraform state rm aws_key_pair.my_key     - now terraform will not maintained the state for key pair
+*** terraform import aws_key_pair.my_key < key-059e44ee6c77e7083b keyid from aws console>  then terraform apply - now terra will maintain the state 
+
+Ex import manually created instance from aws using terraform   ******
+sol 1.declare empty resource in ec2.tf 
+   resource "aws_instance" "my_instance" {
+   amid = "unknown"
+  instance_type = "unknown"
+}
+   2. terraform import aws_instance.my_instance <instance id>
+   3. terraform state list  
+   4. terraform state show aws_instance.my_instance
