@@ -29,3 +29,9 @@ sol 1.declare empty resource in ec2.tf
    2. terraform import aws_instance.my_instance <instance id>
    3. terraform state list  
    4. terraform state show aws_instance.my_instance
+
+**Secure State Management**    -- > Use Remote Backend Amazon S3 + DynamoDB
+prblm.1. we cant commit statefile on git , 2.state conflict when 2 person maintaining the infra 
+sol. create 1 common stetfile in store that in remote backend - s3 and implement state file locking using dynamo db
+       once any one do the changes in .tfstate file, it triggers the dynamo db and generate one lock id.
+       only one person can access .tfstatefile at a time due to locking
