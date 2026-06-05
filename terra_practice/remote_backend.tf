@@ -23,3 +23,26 @@ resource "aws_dynamodb_table" "basic-dynamodb-table" {
     Environment = "Dev"                 #or remove
   }
 }
+
+.....................................'
+terraform init
+terraform validate
+terraform plan
+terraform apply -autu-approve
+terraform state list
+terraform refresh
+
+q. if .tfstate deleted then it will restore it from backup and if backeup also deleted
+
+aws s3api list-object-versions --bucket my-tf-state-bucket
+sol. Option 1: Import Resources Again
+terraform import aws_instance.web i-1234567890abcdef
+
+Option 2: Terraform 1.5+ Import Blocks
+import {
+  to = aws_instance.web
+  id = "i-1234567890abcdef"
+}
+then:
+terraform plan
+Option 3: Reconstruct State
