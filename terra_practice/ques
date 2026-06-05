@@ -1,3 +1,23 @@
+destroy----
+terraform destroy -target=aws_instance.my_instance["skt_skm"]
+terraform state rm 'aws_instance.my_instance["skt_skm"]'
+3. for_each se specific item remove karna
+    for_each = {
+  skt_junoon = "t2.micro"
+  skt_agra   = "t2.micro"
+  skt_skm    = "t2.micro"
+}
+
+to
+for_each = {
+  skt_junoon = "t2.micro"
+  skt_agra   = "t2.micro"
+}
+
+terraform apply
+
+
+
 terra saves the exec plain in --> plan.out
 .terraform dir --> provides_plugins and metadata
 resources confign --> main.tf
