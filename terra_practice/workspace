@@ -1,0 +1,13 @@
+terraform workspace new dev    - dev workspace created
+terraform workspace list
+terraform workspace select dev
+git status
+git init
+git add .
+git commit -m "added terraform"
+
+variable.tf .......................
+variable "env" {
+  default = "dev"
+  type = string
+}
