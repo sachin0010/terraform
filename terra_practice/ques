@@ -42,3 +42,13 @@ sol.If the Terraform state file and its backup are deleted but S3 versioning is 
     provider, but the state must be rebuilt by importing existing resources using terraform import. That's why remote backends, versioning, and backup strategies are
     critical for secure state management.
     S3 State Bucket - enable Versioning , Cross Region Replication, Backup Account
+
+*****Terraform workspaces*******
+ manage multiple state files ising same  confign
+terraform workspace new dev    - dev workspace created
+terraform workspace list
+terraform workspace select default
+git status
+git init
+git add .
+git commit -m "added terraform"
