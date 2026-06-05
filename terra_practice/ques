@@ -35,3 +35,10 @@ prblm.1. we cant commit statefile on git , 2.state conflict when 2 person mainta
 sol. create 1 common stetfile in store that in remote backend - s3 and implement state file locking using dynamo db
        once any one do the changes in .tfstate file, it triggers the dynamo db and generate one lock id.
        only one person can access .tfstatefile at a time due to locking
+
+q.if .tfstate deleted then it will restore it from backup using remote backend but suppose backup file also got deletd then from it it maintained the state again.
+sol.If the Terraform state file and its backup are deleted but S3 versioning is enabled, the state can be restored from previous object versions. 
+    If versioning is not enabled and all copies are lost, Terraform cannot automatically reconstruct the state. The infrastructure may still exist in the cloud 
+    provider, but the state must be rebuilt by importing existing resources using terraform import. That's why remote backends, versioning, and backup strategies are
+    critical for secure state management.
+    S3 State Bucket - enable Versioning , Cross Region Replication, Backup Account
