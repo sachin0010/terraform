@@ -1,13 +1,41 @@
 terraform workspace new dev    - dev workspace created
 terraform workspace list
 terraform workspace select dev
+git checkout -b dev
 git status
 git init
 git add .
-git commit -m "added terraform"
+git commit -m "added terraform"     #terraform and git git both are on dev branch
+
+
+now we can filter in aws console -  instances> Environment=dev     - dev branch/workspace instances showing 
+    and in ec2.tf also give tag like 
+tags = {
+  Name        = each.key
+  Environment = var.env                 - #env will pick from var.tf
+}
+
+same we can create for prod also and update in variable.tf also 
 
 variable.tf .......................
 variable "env" {
   default = "dev"
   type = string
 }
+
+
+scenario 2 for prod--------------------------------------------->>
+terraform workspace new prod  
+terraform workspace select prod
+terraform workspace show
+git checkout -b prod
+var.tf - give prod  
+do whatever changes you want change any instance type or something else
+git add .
+git commit
+teraform validate
+terraform apply 
+terraform state list -   fr diff-diff as per env
+go to aws instances > search Environment = prod   - only prod instance will be showing
+
+**** by this we can separately manage our multi environment using same code using git and terraform workspace. diff diff state file is maintaning in diff diff env.
