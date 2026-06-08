@@ -1,0 +1,4 @@
+Reusable code. A Terraform module is a reusable collection of Terraform resources that encapsulates infrastructure logic and can be called multiple times with different inputs to 
+promote code reuse, consistency, and maintainability. Its like helm chart
+
+
