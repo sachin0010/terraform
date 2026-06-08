@@ -54,5 +54,6 @@ resource "aws_instance" "my_instance" {
 
   tags = {
     Name = "${each.key}"  
+    Environment = var.env                        #take env from var.tf-> dev,prod etc
   }
 } 
