@@ -75,6 +75,6 @@ resource "aws_instance" "my_instance" {
   }
 
   tags = {
-    Name = "${each.key}"  
+    Name = "${each.key}"                       #key=skt_junoon ,  value=t2.micro   used in for_each only
   }
 }
