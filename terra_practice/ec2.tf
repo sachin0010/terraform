@@ -9,7 +9,7 @@ resource "aws_default_vpc" "my_vpc" {
 
 #sg
 resource "aws_security_group" "my_sg" {
-  name   = "automate-sg"
+  name   = "automate-sg"       #if already exist sec group something error getting then used ${var.env}-automate-sg"  - now create like prod-skt-automate-sg
   vpc_id = aws_default_vpc.my_vpc.id          #interpolation
 
   ingress {
@@ -50,7 +50,7 @@ resource "aws_instance" "my_instance" {
   }
 
   tags = {
-    Name = "skt_automate"
+    Name = "skt_automate"            
   }
 }
 
