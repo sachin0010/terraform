@@ -1,7 +1,7 @@
-resource aws_s3_bucket my_bucket {
-        bucket = "${var.my_env}-skt-bucket"
+resource "aws_s3_bucket" "remote_s3" {
+        bucket = "${var.my_env}-${var.bucket_name}"
 
         tags = {
-          Name = "skt-bucket"
+          Name = "${var.my_env}-${var.bucket_name}"
           Environment = var.env
 }
