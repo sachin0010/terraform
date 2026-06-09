@@ -24,3 +24,9 @@ variable "instance_type" {
   type = string
 
 }
+
+variable "hash_key" {
+  description = "this is hash key for dynamo_db"
+  type = string
+
+}
